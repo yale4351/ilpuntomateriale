@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+
+body{
+    padding: 20px;
+    background-color: rgb(250, 255, 205);
+}
+
+.img1{
+        height: 250px;
+        width: auto;
+        margin: 10px 35px 10px 10px;
+        
+    }
+
+.leg1{
+    display: flex;
+}
+
+.cn{
+    width: 70%;
+    height: auto;
+    margin: 30px;
+
+}
+
+table, td, th, caption{
+    border: 2px solid black;
+    background-color: aqua;
+}
+caption{background-color: rgb(0, 110, 255);}
+td{background-color: rgb(253, 218, 122);}
+
+
+</style>
+<head>
+    <title>La Fisica é Facile</title>
+</head>
+<body id="body">
+ <select onchange="sceltaMoto()" class="sceltaMoto">
+     <option>select</option>
+     <option value="MA">Moto Armonico</option>
+     <option value="MR">Moto Retilineo Uniforme</option>
+     <option value="SA">Spinta di Archimede</option>
+     <option value="NDS">notazione  decimale e scentifica</option>
+     <option value="PR">Pressione</option>
+     <option value="GA">Galleggiamento</option>
+     <option value="VC">Vasi Comunicanti</option>
+     <option value="SI">Sistema Internazionale</option>
+ </select>   
+
+ <p id="infoM">Qui da <b style="border: 3px dashed rgb(180, 153, 0); padding: 0 4px 0 4px; border-radius: 5px;">il punto materiale</b> 
+    puoi trovare delle nozioni della fisica di base spiegate ed illustrate in modo semplice, 
+     il nostro sito è sempre in aggiornamento per trattare sempre più argomenti differenti, 
+     per inizziare vai sulla barra a tendina in alto a sinistra e trova l argomento che ti interessa.</p>
+ <div class="leg1" >
+    <img class="img1" src="">
+    <p id="LI1"></p>
+</div>
+
+<div class="cn"></div>
+
+
+
+</body>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    
+
+    var SM;
+    var infoM = document.getElementById("infoM");
+    var LI1 = document.getElementById("LI1");
+    var img1 = document.querySelector(".img1");
+    var cn = document.querySelector(".cn");
+    
+
+    function sceltaMoto(){
+        SM = document.querySelector(".sceltaMoto");
+        console.log(SM.value);
+        
+        //moto armonico
+
+        if(SM.value === "MA"){
+            infoM.innerHTML="il moto armonico è un moto di tipo periodico, ossia dopo un certo intervallo di tempo \
+            detto periodo (T) si ripete in maniera identica.  <br>\
+            Un esempio molto semplice è il movimento di un pendolo, purchè esso in realtà è influenzato dall atrito e lentamente rallenta.\
+            <br>\
+            Il moto armonico è rappresentabile con la proiezione sul diametro di un punto materiale (P) che si muove con un moto circolare uniforme, \
+            quindi con velocità costante lungo il perimetro di un cerchio.";
+
+            img1.src="MA.png";
+
+            LI1.innerHTML="L'angolo alpha formatosi tra il diametro ed il raggio ( avente come etremo P, in movimento, appartenete al cerchio) \
+            è calcolabile moltiplicando la velocità angolare di P (ω) per il tempo (Δt); <br>\
+            lo spazio percorso, calcolato a partire dall origine, si trova moltiplicando il coseno di alpha con il raggio<br>\
+            <b> S = cos(ω*Δt) r </b><br>\
+            Il punto in cui la velocità sarà massima è il centro (O) perchè il vettore tangente della velocità di P sul cerchio sarà parallelo al diametro, \
+            mentre agli estremi il punto P si muoverà perpendicolarmentè dando una velocità istantanea alla sua proiezione pari a zero.<br>\
+            per calcolare la velocità si applica la formula <b> v = v1 cos(90 - ω*Δt)</b> in cui ω*Δt determina l'angolo alpha e v1 la velocità di P.<br>\
+            <br>\
+            Per quanto riguarda l'accelerazione, questa è nulla al centro e massima agli estremi, la sua formula è:<b> a = - ω<sup>2</sup>*S</b><br>\
+            la formula contiene un meno, perchè quando S è positivo ci si sta muovendo verso destra ma rellentando (quindi accelerazione negativa)\
+            sino a fermarsi e tornare indietro, quando superiamo O, S è negativa ma stiamo rallentando di nuovo \
+            (dato che andiamo al contrario rallentando acceleriamo e quindi per compensare S negativa è necessario moltiplicare per -1)<br>\
+            <br>\
+            il grafico più usato per questo moto è quello spazio-tempo, se vuoi crearne uno premi <button onclick='makeGraphic()'> qui</button>\
+            <br><br><br>\
+            formule supplementari: per calcolare il periodo (T), ossia il tempo per un oscillazione: <br>\
+            - di un pendolo: <b>T = 2π √(l/g);</b> in cui l è la lunghezza del pendolo<br>\
+            - di un oscillatore armonico(molla + peso): <b>2π √(m/k);</b> in cui k è il coefficente elastico della molla e m la massa del peso.";
+
+            cn.innerHTML="";
+        }
+
+        //spinta di Archimede
+
+        if(SM.value === "SA"){
+            infoM.innerHTML="La spinta di Archimede è la spinta che subisce un corpo immerso in un fluido, \
+            essa dipende dalla quantità di fluido spostato e dalla sua densià.<br>\
+            Un errore comune è pensare che con fluido si intendano i liquidi, ma anche i gas sono dei fluidi, infatti quando i palloncini pieni d'elio volano \
+            è proprio grazie alla spinta di archimede. ";
+
+            img1.src="SA.png";
+
+            LI1.innerHTML=" per calcolare la spinta di archimede (Sa) dobbiamo prima calcolare il volume (V) di fluido spostato \
+            nel caso in figura <b> V = l * b * h </b>, <br>\
+            ora dobbiamo moltiplicarlo per la densità del fluido, nel caso dell acqua dolce <b>d = 997kg/m3</b>,<br>\
+            ora bbiamo ottenuto il peso dell fluido spostato, per sapere la spinta di Archimede moltiplichiamo il risultato per l'accelerazione di gravità,\
+            sulla terra <b> g = 9.81 m/s2</b> ;<br>\
+            <b>Sa = V * d * g</b><br>\
+            nota: la spinta di Archimede è sempre espressa in Newtont(n), \
+            anche nei calcoli precedenti bisogna utilizzare le unità di misura del sistema internazionale (m, kg/m3, m/s2)";
+            cn.innerHTML="";
+            
+        }
+
+        //notazione decimale e scientifica
+
+        if(SM.value === "NDS"){
+            infoM.innerHTML="La notazione decimale prevede la diretta scrittura delle cifre decimali e non di un numero, \
+            quella scentifica invece prevede una sintassi diversa: per scrivere un numero correttamente in notazione decimale \
+            bisogna spostare la virgola al secondo posto da sinistra, tenere le cifre significatie necessarie (consulta la nostra pagina a riguardo) e moltiplicare il tutto per una potenza di 10: <br>\
+            <b>3500 == 3.5 * 10<sup>3</sup><br>\
+            0.02 == 2 * 10<sup>-2</sup> </b><br>\
+            per capire di la potenza di 10 necessaria basta constare in numero di volte per cui abbiamo spostato la virgola;<br> e per il segno? \
+            basta controllare il senso, se la abbiamo spostata a sinistra è positivo e viceversa: <br>\
+            <b>3500 → 350.0 (1 volta verso sinistra) → 35.00 (2 volte verso sinistra) → 3.500 (3 volte verso sinistra) →→→ 3.5 * 10<sup>3</sup><br>\
+            0.02 → 0.2 (1 volta verso destra) → 2.0 (2 volte verso destra) →→→ 2 * 10<sup>-2</sup> </b><br>\
+            <br>\
+            nota: nel linguaggio informatico è possibile trovare le potenze di 10 indicate con la lettera 'e': <br>\
+            <b>3500 == 3.5 * 10<sup>3</sup> == 3.5e3 <br>\
+            0.02 == 2 * 10<sup>-2</sup> == 2e-2</b>";
+
+            img1.src="";
+
+            LI1.innerHTML="";
+            
+            cn.innerHTML="";
+
+        }
+
+        //pressione
+
+        if(SM.value === "PR"){
+            infoM.innerHTML="<b>-pressione</b><br>\
+            La pressione è il rapporto tra la forza impressa da un corpo e la superficie d'appoggio: <b>P = F/S;</b><br>\
+            F si può trovare moltiplicando la massa dell'oggetto espressa in kilogrammi (Kg) per l'accelerazione di gravità <b>(g = 9.81 m/s)</b>,\
+            mentre la superficie d'appoggio è espressa in metri quadrati (m<sup>2</sup>).<br> \
+            L'unità di misura della pressione (secondo il sistema internazionale) sono i <b>Pascal</b>, che deriva dal cognome del matematico Blaise Pascal.<br>";
+
+            img1.src="PR.png";
+
+            LI1.innerHTML="Un secondo modo per calcolare la pressione è tramite la legge di Stevino, utilizzata nei problemi con i fluidi. <br>\
+            La formula per calcolare la pressione secondo la legge di Stevino è una semplice moltiplicazione tra l'accelerazione di gravità,\
+            la densità del fluido(in kg/m<sup>3</sup>) e la profondità interessata(in m): <br><b>P = g*d*h;</b>\
+            <br>\
+            Secondo questa formula infatti, eseguendo tutti i calcoli correttamente, si può osservare che ogni 10 metri di profondità in acqua, \
+            partendo da un atmosfera di base dovuta all aria, se ne aggiunge circa una,<br>\
+            quindi a 50 metri ci satanno 6 atm;<br>\
+            <br>";
+            
+            cn.innerHTML="  <table>\
+            <caption>\
+            <b>unità di misuara della pressione</b>\
+            </caption>\
+            <tr>\
+            <th>unità di misura</th>\
+            <th></th>\
+            <th>equivalente in bar</th>\
+            </tr>\
+            <tr>\
+                <td>bar</td>\
+                <td>bar:</td>\
+                <td>1</td>\
+            </tr>\
+            <tr>\
+                <td>atmosfere</td>\
+                <td>atm:</td>\
+                <td>0,987</td>\
+            </tr>\
+            <tr>\
+                <td>Pascal</td>\
+                <td>Pa:</td>\
+                <td>100 000</td>\
+            </tr>\
+            <tr>\
+                <td>mm di mercurio</td>\
+                <td>mmHg:</td>\
+                <td>750,062</td>\
+            </tr>\
+            <tr>\
+                <td>libbre per pollice quad.</td>\
+                <td>psi:</td>\
+                <td>14,5038</td>\
+            </tr>\
+            </table>";
+
+        }
+
+
+     //Moto Retilineo Uniforme
+
+        if(SM.value === "MR"){
+
+            infoM.innerHTML="Il moto retilineo uniforme (MRU) è un moto di velocità costante, ossia che non varia e che si muove su una traiettoria rettilinea:<br>\
+            per calcolare la sua velocità basta dividere lo spostamento per il tempo: <br>\
+            <b>v = S / t;</b> <br>\
+            trascurando la presenza di una velocità inizziale (v0) a cui basterebbe sommare il risultato precedente;\
+            anche in presenza di t o S iniziali diverse da 0 la formula cambierebbe:<br>\
+            <b>v = v0 + ΔS/Δt</b><br>    (in cui Δ indica x1-x0)\
+            le formule inverse sono:<br>\
+            <b>t = S/v;</b><br>\
+            <b>S = v*t;</b><br>\
+            naturalmente tutti i calcoli riguardano le unità di misuta del sistema internazionale, per saperne di più controlla la nostra pagina a riguardo.<br><br>\
+            I grafici più utilizzati per questo moto sono quello <button onclick='sp_tm()'>spazio-tempo</button> e <button onclick='vl_tm()'>velocità-tempo</button><br>";
+
+            img1.src="";
+
+            LI1.innerHTML="";
+            
+            cn.innerHTML="";
+
+        }
+
+        //Galleggiamento
+
+        if(SM.value === "GA"){
+
+            infoM.innerHTML="<b>Galleggiamento:</b><br>\
+            capire se un oggetto galleggia è semplicissimo, basta controllare se la sua densità è inferiore a quella dell'acqua (1000 kg/m<sup>3</sup>) o del liquido interessato, \
+            <br><br>\
+            <b>Attenzione: </b> non sempre è corretto usare la densità del materiale che compone il nostro oggetto, ma come ad esempio le navi, \
+            in cui il metallo ha densità superiore all acqua, è necessario considerare l'elevata presenza di aria all interno che abbassa la densità totale.<br>\
+            Per calcolare la nuova densità basta dividere la massa per il volume: <b>d = m/V;</b><br><br>\
+            La formula copleta infatti non riguarda direttamente la densità, ma mette a confronto la forza peso (m * g) e la spinta di Archimede<br><br><br>\
+            <b>nota:</b> le unità di misura usate sono quelle del S.I.>";
+
+            img1.src="";
+
+            LI1.innerHTML="";
+
+            cn.innerHTML="";
+
+        }
+
+        //Vasi Comunicanti
+
+        if(SM.value === "VC"){
+
+            infoM.innerHTML="<b>Vasi Comunicanti:</b><br>\
+            I vasi comunicanti sono semplici recipienti messi in congiunzione  da un condotto, in genere sul fondo, che riempiti di un fluido assumono particolari caratteristiche:<br>\
+            <br>\
+            <br>\
+            <div style='display: flex;'>\
+            <img style='height: 150px; width: auto; margin: 20px;' src='VC1.png'><br>\
+            <p>\
+            <b>caso1:</b><br>\
+            se nei vasi è presente un solo liquido, i vasi si riempiranno allo stesso livello a prescindere dalle dimensioni.\
+            </p>\
+            </div>\
+            <br><hr><br><br>\
+            <div style='display: flex;'>\
+            <img style='height: 150px; width: auto; margin: 20px;' src='VC2.png'><br>\
+            <p>\
+            <b>caso2:</b><br>\
+            nel caso che nei vasi comunicanti siano presenti 2 liquidi differenti ed immiscibili, esiste una proporzione per calcolare i loro livelli:<br>\
+            prendendo come asse orrizzontale di riferimento la linea di separazione, come tracciatto in rosso in figura;<br> \
+            la proporzione tra i due livelli si trova rapportando le due pressioni trovate con h * g * d secondo la legge di stevino:<br><br>\
+            d<sub>1</sub> * g * h<sub>1</sub> = d<sub>2</sub> * g * h<sub>2</sub>; → in cui g accelerazione di gravità si può semplificare ottenendo:<br>\
+            <b>d<sub>1</sub> * h<sub>1</sub> = d<sub>2</sub> * h<sub>2</sub>;</b> → quindi le loro altezze sono inversamente proporzionali alle densità.\
+            </p>\
+            </div>";
+
+            img1.src="";
+
+            LI1.innerHTML="";
+
+            cn.innerHTML="";
+
+        }
+
+
+        //Sistema Internazionale
+
+        if(SM.value === "SI"){
+
+            infoM.innerHTML="<b>Sistema internazionale:</b> <br>\
+            Il S.I. è l insieme delle unità di misura adottate dall unione europea come principali, \
+            di seguito possiamo trovare una tabella delle misure fondamentali principali, \
+            quindi tutte quelle misure che non derivano da altre al contrario ad esempio del volume che deriva dalla lunghezza.\
+            <br><br><br><br>\
+            <table>\
+            <caption><b>S.I.</b></caption>\
+            <th>grandezza</th>\
+            <th>simbolo</th>\
+            <th>Unità di misura</th>\
+            <th>simbolo</th>\
+            <tr>\
+            <td>lunghezza</td>\
+            <td>l</td>\
+            <td>metri</td>\
+            <td>m</td>\
+            </tr>\
+            <tr>\
+            <td>massa</td>\
+            <td>m</td>\
+            <td>kilogrammo</td>\
+            <td>kg</td>\
+            </tr>\
+            <tr>\
+            <td>tempo</td>\
+            <td>t</td>\
+            <td>secondo</td>\
+            <td>s</td>\
+            </tr>\
+            <tr>\
+            <td>corrente elettrica</td>\
+            <td>l</td>\
+            <td>ampere</td>\
+            <td>A</td>\
+            </tr>\
+            <tr>\
+            <td>temperatura</td>\
+            <td>T</td>\
+            <td>Kelvin</td>\
+            <td>K</td>\
+            </tr>\
+            <tr>\
+            <td>quantità di sostanza</td>\
+            <td>n</td>\
+            <td>mole</td>\
+            <td>mol</td>\
+            </tr>\
+            <tr>\
+            <td>intensità luminosa</td>\
+            <td>i<sub>v</sub></td>\
+            <td>candela</td>\
+            <td>cd</td>\
+            </tr>\
+            </table>";
+
+            img1.src="";
+
+            LI1.innerHTML="";
+
+            cn.innerHTML="";
+
+        }
+    }
+
+//funzione MRU v-t
+function vl_tm(){
+
+cn.innerHTML="<canvas id='canvas'></canvas>";
+var v = window.prompt("velocità?");
+var t = window.prompt("tempo?");
+y=[]
+x=[]
+var tt=0
+
+for (i=0; i<=t; i++){ 
+    
+    y.push(v);
+    x.push(i + "s")
+}    
+const data = {
+ labels: x,
+  datasets: [{
+    label: 'M.R.U. grafico(v-t)',
+    data: y,
+  }]
+};
+const config = {
+  type: 'line',
+  data: data,
+  options: {}
+};
+const myChart = new Chart(
+    document.getElementById("canvas"),
+  config
+);
+}
+
+
+//funzione MRU s-t
+function sp_tm(){
+
+cn.innerHTML="<canvas id='canvas'></canvas>";
+var v = window.prompt("velocità?");
+var t = window.prompt("tempo?");
+y=[]
+x=[]
+var tt=0
+
+for (i=0; i<=t; i++){ 
+    
+    y.push(v*i);
+    x.push(i + "s")
+}    
+const data = {
+ labels: x,
+  datasets: [{
+    label: 'M.R.U. grafico(s-t)',
+    data: y,
+  }]
+};
+const config = {
+  type: 'line',
+  data: data,
+  options: {}
+};
+const myChart = new Chart(
+    document.getElementById("canvas"),
+  config
+);
+}
+
+
+
+   
+// funzione moto armonico   
+var rad = 3.14/180;
+
+   function makeGraphic(){
+
+        cn.innerHTML="<canvas id='canvas'></canvas>";
+        var n = window.prompt("numero di oscillazioni?");
+        var T = window.prompt("periodo?");
+        var r = window.prompt("raggio");
+        n = n * 360;
+
+        y=[]
+        x=[]
+        var tt=0
+
+        for (i=1; i<=n; i++){ 
+            alpha=i*rad;
+            y.push(Math.cos(alpha)*r)
+            tt=tt + T/360
+            x.push(tt.toFixed(3) + "s")
+        }    
+        const data = {
+         labels: x,
+          datasets: [{
+            label: 'Il mio moto armonico',
+            data: y,
+          }]
+        };
+        const config = {
+          type: 'line',
+          data: data,
+          options: {}
+        };
+        const myChart = new Chart(
+            document.getElementById("canvas"),
+          config
+        );
+
+    }
+        
+  
+</script>
+</html>
