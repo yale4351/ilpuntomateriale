@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <style>
 
 body{
@@ -63,11 +62,12 @@ td{background-color: rgb(253, 218, 122);}
      <option value="GA">Galleggiamento</option>
      <option value="VC">Vasi Comunicanti</option>
      <option value="SI">Sistema Internazionale</option>
+     <option value="LV">Leve</option>
  </select>   
 
  <p id="infoM">Qui da <b>il punto materiale</b> 
     puoi trovare delle nozioni della fisica di base spiegate ed illustrate in modo semplice, 
-     il nostro sito è sempre in aggiornamento per trattare sempre più argomenti differenti, 
+    il nostro sito è sempre in aggiornamento per trattare sempre più argomenti differenti, 
      per iniziare vai sulla barra a tendina in alto a sinistra e trova l'argomento che ti interessa.</p>
  <div class="leg1" >
     <img class="img1" src="">
@@ -388,6 +388,31 @@ td{background-color: rgb(253, 218, 122);}
             cn.innerHTML="";
 
         }
+
+
+
+        //leve
+
+        if(SM.value === "LV"){
+
+            infoM.innerHTML="<b>le leve:</b><br>\
+            Le leve potrebbero mettere in crisi chi è alle prime armi con la fisica, \
+            perche pur ponendo la stessa forza a due leve non sempre queste si equivalgono.<br><br>\
+            Questo dipende dalla loro lunghezza, infatti bisogna considerare il momento meccanico di queste e non solo la forza posta:<br><br>";
+
+            img1.src="LV.png";
+
+            LI1.innerHTML="\
+            <b>M = S * F;</b> in cui F è la forza perpendicolare alla leva e S aquivale al braccio, ossia la sua lunghezza;<br>\
+            qualora il nostro obbiettivo fosse quello di confrontare due leve e considerassimo delle forze peso, g, \
+            accelerazione di gravità è superflua poiche presente nelle formule di antrambe le leve e dunque F sarebbe sostituibile con la massa.<br> \
+            <b>S<sub>1</sub>*F<sub>1</sub>=S<sub>2</sub>*F<sub>2</sub></b> o, per il caso precedente: <b>S<sub>1</sub>*m<sub>1</sub>=S<sub>2</sub>*m<sub>2</sub>;</b><br>\
+            Le formule precedenti sono utilizzabili solo in una condizione di equilibrio in cui i due momenti si equivalgono";
+
+            cn.innerHTML="";
+
+        }
+
     }
 
 //funzione MRU v-t
