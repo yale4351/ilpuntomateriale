@@ -56,6 +56,7 @@ td{background-color: rgb(253, 218, 122);}
      <option>select</option>
      <option value="MA">Moto Armonico</option>
      <option value="MR">Moto Retilineo Uniforme</option>
+     <option value="MC">Moto Circolare Uniforme</option>
      <option value="SA">Spinta di Archimede</option>
      <option value="NDS">notazione  decimale e scentifica</option>
      <option value="PR">Pressione</option>
@@ -408,6 +409,33 @@ td{background-color: rgb(253, 218, 122);}
             accelerazione di gravità è superflua poiche presente nelle formule di antrambe le leve e dunque F sarebbe sostituibile con la massa.<br> \
             <b>S<sub>1</sub>*F<sub>1</sub>=S<sub>2</sub>*F<sub>2</sub></b> o, per il caso precedente: <b>S<sub>1</sub>*m<sub>1</sub>=S<sub>2</sub>*m<sub>2</sub>;</b><br>\
             Le formule precedenti sono utilizzabili solo in una condizione di equilibrio in cui i due momenti si equivalgono";
+
+            cn.innerHTML="";
+
+        }
+
+
+        //Moto circolare Uniforme
+
+        if(SM.value === "MC"){
+
+            infoM.innerHTML="<b>MCU:</b><br>\
+            Il moto circolare uniforme è il moto di un punto che percorre una circonferenza con velocità in modulo costante.<br><br> \
+            Il tempo necessario per percorre l'intera circonferenza si definisce <b>periodo</b> e si indica con <b>T</b>,\
+            la sua unità di misura è il secondo;<br>\
+            il suo opposto è la <b>frequenza</b>, ossia il numero di giri in un secondo, si misura in <b>Herz o s<sup>-1</sup></b>";
+
+            img1.src="MC.png";
+
+            LI1.innerHTML="\
+            La velocità non è costante in direzione, ma in modulo, quindi per calcolarla bisogna considerare un intervallo di tempo molto breve, \
+            la velocità istantanea quindi è rappresentabile con un vettore tangente alla circonferenza.<br>\
+            <b>v = S/Δt</b> quindi: <b>v = 2πr/Δt.</b><br><br>\
+            Il MCU è un moto accelarato, in particolare la sua accelerazione è centripeta, ossia diretta verso il centro:<br>\
+            <b>a<sub>c</sub> = v<sup>2</sup>/r;</b><br><br>\
+            La velocità angolare ω si misura in radianti al secondo e si calcola con:<br>\
+            <b>ω = α/Δt;</b> un angolo giro (360°) corrisponde a 2π radianti, quindi ω si può anche calcolare con: <br>\
+            <b>ω = 2π/T</b>";
 
             cn.innerHTML="";
 
